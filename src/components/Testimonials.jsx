@@ -19,7 +19,7 @@ const Testimonials = () => {
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition"
           >
             <div className="flex items-center space-x-4 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-12 h-12 bg-linear-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold">
                 {testimonial.avatar}
               </div>
               <div>

@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -51,11 +52,11 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>+91 9876543210</span>
+                <span>+91 8338901176</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span>support@foodexpress.com</span>
+                <span>jagannathpradhan1221@gmail.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
@@ -66,7 +67,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 pt-6 text-center text-gray-400">
-          <p>&copy; {currentYear} DashDine. All rights reserved. Made with ❤️ in India</p>
+          <p>&copy; {currentYear} DashDine. All rights reserved. Made by <Link href="https://pradhan-portfolio-rust.vercel.app/" className="animate-pulse text-orange-400" target="_blank">dev_pradhan</Link></p>
         </div>
       </div>
     </footer>

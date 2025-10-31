@@ -58,7 +58,7 @@ const HeroSlider = () => {
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">{slide.title}</h1>
                 <p className="text-xl md:text-2xl mb-8">{slide.subtitle}</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">
+                  <button className="px-8 py-3 bg-linear-to-r from-orange-500 to-red-500 rounded-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">
                     {slide.cta1}
                   </button>
                   <button className="px-8 py-3 bg-white text-gray-800 rounded-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">

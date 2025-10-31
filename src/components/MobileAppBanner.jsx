@@ -1,6 +1,6 @@
 const MobileAppBanner = () => {
   return (
-    <div className="bg-gradient-to-r from-purple-600 to-blue-600 py-16">
+    <div className="bg-linear-to-r from-purple-600 to-blue-600 py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between text-white">
           <div className="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">

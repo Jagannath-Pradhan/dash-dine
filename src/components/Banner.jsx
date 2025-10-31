@@ -28,7 +28,7 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg font-semibold hover:shadow-xl transition transform hover:scale-105">
+            <button className="px-8 py-3 bg-linear-to-r from-orange-500 to-red-500 text-white rounded-lg font-semibold hover:shadow-xl transition transform hover:scale-105">
               Order Now
             </button>
           </div>

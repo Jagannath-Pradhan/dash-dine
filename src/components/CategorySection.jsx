@@ -64,7 +64,7 @@ const CategorySection = () => {
                   <h4 className="font-semibold text-lg mb-2">{item.name}</h4>
                   <div className="flex justify-between items-center">
                     <span className="text-xl font-bold text-orange-500">₹{item.price}</span>
-                    <button className="px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg text-sm hover:shadow-lg transition">
+                    <button className="px-4 py-2 bg-linear-to-r from-orange-500 to-red-500 text-white rounded-lg text-sm hover:shadow-lg transition">
                       Add
                     </button>
                   </div>

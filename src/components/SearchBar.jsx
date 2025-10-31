@@ -11,7 +11,7 @@ const SearchBar = () => {
             placeholder="Search for restaurants, cuisines, or dishes..."
             className="flex-1 outline-none text-gray-700"
           />
-          <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:shadow-lg transition">
+          <button className="px-6 py-2 bg-linear-to-r from-orange-500 to-red-500 text-white rounded-lg hover:shadow-lg transition">
             Search
           </button>
         </div>
