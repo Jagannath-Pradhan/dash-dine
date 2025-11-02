@@ -1,36 +1,51 @@
-import { Eye, EyeOff, Facebook, X } from 'lucide-react';
-import { useState } from 'react';
+"use client";
 
-const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
+import { useState } from "react";
+import { Eye, EyeOff, Facebook, X } from "lucide-react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+
+export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    phone: ''
+    name: "",
+    email: "",
+    phone: "",
+    password: ""
   });
+  const router = useRouter();
 
-  if (!isOpen) return null;
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onLoginSuccess(formData.name || 'JD');
-    onClose();
+
+    try {
+      const endpoint = isLogin ? "/api/auth/login" : "/api/auth/register";
+      const { data } = await axios.post(endpoint, formData);
+
+      if (data.success) {
+        alert(isLogin ? data.message || 'Login successful!' : data.message || 'Registration successful!');
+        setFormData({ name: "", email: "", phone: "", password: "" });
+        router.push("/"); // redirect after login/register
+      } else {
+        alert(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Server error. Please try again later.");
+    }
   };
 
   const handleSocialLogin = (provider) => {
     console.log(`Login with ${provider}`);
-    onLoginSuccess('JD');
-    onClose();
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm">
       <div className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
         <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition"
+          onClick={() => router.push("/")}
+          className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition cursor-pointer"
         >
           <X className="w-5 h-5 text-gray-600" />
         </button>
@@ -43,9 +58,9 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
               alt="Delicious Food"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/90 to-red-600/90 flex items-center justify-center p-6">
+            <div className="absolute inset-0 bg-linear-to-br from-orange-500/90 to-red-600/90 flex items-center justify-center p-6">
               <div className="text-white text-center space-y-3">
-                <h2 className="text-3xl font-bold">Welcome to FoodExpress</h2>
+                <h2 className="text-3xl font-bold">Welcome to DashDine</h2>
                 <p className="text-lg opacity-90">
                   Your favorite meals, delivered fresh and fast
                 </p>
@@ -84,19 +99,19 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
                     alt="Food"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/90 to-red-600/90 flex items-center justify-center">
-                    <h2 className="text-xl font-bold text-white">FoodExpress</h2>
+                  <div className="absolute inset-0 bg-linear-to-br from-orange-500/90 to-red-600/90 flex items-center justify-center">
+                    <h2 className="text-xl font-bold text-white">DashDine</h2>
                   </div>
                 </div>
               </div>
 
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-gray-800 mb-1">
-                  {isLogin ? 'Welcome Back!' : 'Join FoodExpress'}
+                  {isLogin ? 'Welcome Back!' : 'Join DashDine Today'}
                 </h3>
                 <p className="text-gray-600 text-sm">
                   {isLogin
-                    ? 'Sign in to continue your culinary journey'
+                    ? 'Login to continue your culinary journey'
                     : 'Create an account to get started'}
                 </p>
               </div>
@@ -120,11 +135,12 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
                   onClick={() => handleSocialLogin('Facebook')}
                   className="w-full flex items-center justify-center space-x-3 px-4 py-2.5 border-2 border-gray-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition text-sm"
                 >
-                  <Facebook className="w-4 h-4 text-blue-600 fill-blue-600" />
+                  <Facebook className="w-4 h-4 text-blue-600" />
                   <span className="font-medium text-gray-700">Continue with Facebook</span>
                 </button>
               </div>
 
+              {/* Divider */}
               <div className="relative mb-5">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-300"></div>
@@ -211,9 +227,9 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
                       <input type="checkbox" className="w-3.5 h-3.5 text-orange-500 border-gray-300 rounded focus:ring-orange-500" />
                       <span className="ml-2 text-gray-600">Remember me</span>
                     </label>
-                    <button 
+                    <button
+                      onClick={() => router.push("/auth/forgot-password")}
                       type="button"
-                      onClick={onForgotPassword}
                       className="text-orange-500 hover:text-orange-600 font-medium"
                     >
                       Forgot password?
@@ -223,9 +239,9 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
 
                 <button
                   type="submit"
-                  className="w-full py-2.5 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:shadow-lg transition transform hover:scale-105 text-sm"
+                  className="w-full py-2.5 bg-linear-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:shadow-lg transition transform hover:scale-105 text-sm"
                 >
-                  {isLogin ? 'Sign In' : 'Create Account'}
+                  {isLogin ? 'Login' : 'Create Account'}
                 </button>
               </form>
 
@@ -236,7 +252,7 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
                     onClick={() => setIsLogin(!isLogin)}
                     className="text-orange-500 hover:text-orange-600 font-semibold"
                   >
-                    {isLogin ? 'Sign Up' : 'Sign In'}
+                    {isLogin ? 'Register' : 'Login'}
                   </button>
                 </p>
               </div>
@@ -254,6 +270,4 @@ const AuthModal = ({ isOpen, onClose, onLoginSuccess, onForgotPassword }) => {
       </div>
     </div>
   );
-};
-
-export default AuthModal;
+}
