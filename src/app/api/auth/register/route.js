@@ -36,13 +36,13 @@ export async function POST(req) {
     }
 
     // password validation
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
-    if (!passwordRegex.test(password)) {
-      return NextResponse.json({
-        success: false,
-        message: 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.'
-      }, { status: 400 });
-    }
+    // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    // if (!passwordRegex.test(password)) {
+    //   return NextResponse.json({
+    //     success: false,
+    //     message: 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.'
+    //   }, { status: 400 });
+    // }
 
     // existing user check
     const existingUser = await User.findOne({ email });
