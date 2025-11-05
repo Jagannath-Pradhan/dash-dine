@@ -39,11 +39,11 @@ const Navbar = ({ isLoggedIn, userName, userRole, onLogout, isScrolled }) => {
             </div>
 
             <div className="hidden md:flex items-center space-x-6">
-              <a href="#menu" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>Menu</a>
+              <Link href="/menu" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>Menu</Link>
 
               {/* My Orders shows only when logged in */}
               {isLoggedIn && (
-                <a href="#orders" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>My Orders</a>
+                <Link href="/my-orders" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>My Orders</Link>
               )}
 
               {/* Admin Panel only for Admin role */}
@@ -113,10 +113,10 @@ const Navbar = ({ isLoggedIn, userName, userRole, onLogout, isScrolled }) => {
       {mobileMenuOpen && (
         <div className={`md:hidden border-t ${isScrolled ? 'bg-white' : 'bg-black bg-opacity-80 backdrop-blur-md'}`}>
           <div className="px-4 py-3 space-y-3">
-            <a href="#menu" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>Menu</a>
+            <Link href="/menu" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>Menu</Link>
 
             {isLoggedIn && (
-              <a href="#orders" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>My Orders</a>
+              <Link href="/my-orders" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>My Orders</Link>
             )}
 
             {isLoggedIn && isAdmin && (

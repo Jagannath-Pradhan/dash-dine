@@ -1,6 +1,3 @@
-// components/menu/MenuGrid.jsx
-'use client';
-
 import MenuItem from './MenuItem';
 
 export default function MenuGrid({ menuItems, categories }) {

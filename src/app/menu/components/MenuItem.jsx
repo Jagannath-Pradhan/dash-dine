@@ -1,4 +1,3 @@
-// components/menu/MenuItem.jsx
 'use client';
 
 import { useState } from 'react';

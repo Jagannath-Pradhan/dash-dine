@@ -1,4 +1,3 @@
-// components/menu/SearchAndFilters.jsx
 'use client';
 
 import { useState } from 'react';

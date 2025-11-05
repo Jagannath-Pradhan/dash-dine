@@ -1,4 +1,3 @@
-// components/menu/CategoryNav.jsx
 'use client';
 
 import { useState, useRef, useEffect } from 'react';

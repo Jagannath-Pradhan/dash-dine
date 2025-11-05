@@ -1,4 +1,3 @@
-// app/menu/page.jsx
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
 import CategoryNav from './components/CategoryNav';
