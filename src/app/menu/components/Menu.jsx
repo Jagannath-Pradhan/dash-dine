@@ -32,7 +32,7 @@ export async function getMenuData() {
         description: 'Classic cheese pizza with tomato sauce',
         isVeg: true
       },
-      { id: '2', name: 'Pepperoni Pizza', category: 'pizza', price: 399, rating: 4.7, image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=300&fit=crop', description: 'Loaded with spicy pepperoni', isVeg: false },
+      { id: '2', name: 'Pepperoni Pizza', category: 'pizza', price: 399, rating: 4.7, image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=300&fit=crop', description: 'Loaded with spicy pepperoni', isVeg: true },
       { id: '3', name: 'Veggie Supreme', category: 'pizza', price: 349, rating: 4.3, image: 'https://images.unsplash.com/photo-1511689660979-10d2b1aada49?w=400&h=300&fit=crop', description: 'Fresh vegetables with cheese', isVeg: true },
       {
         id: 5,

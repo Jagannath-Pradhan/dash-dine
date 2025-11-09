@@ -126,7 +126,6 @@ import FoodCard from "@/components/FoodCard";
 
 const FoodCardDemo = () => {
     const cuisines = [
-        // 🍕 PIZZA
         {
             category: "Pizza",
             items: [
@@ -193,7 +192,7 @@ const FoodCardDemo = () => {
                         { id: 3, name: "Stuffed Crust", price: 70 },
                         { id: 4, name: "BBQ Sauce Drizzle", price: 25 }
                     ],
-                    isVeg: false
+                    isVeg: true
                 },
                 {
                     id: 4,
@@ -247,7 +246,7 @@ const FoodCardDemo = () => {
             category: "Burger",
             items: [
                 {
-                    id: 7,
+                    id: 6,
                     name: "Classic Veg Burger",
                     description: "Crispy patty with lettuce, tomato & mayo",
                     image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400",
@@ -266,7 +265,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 8,
+                    id: 7,
                     name: "Veggie Burger",
                     description: "Loaded with fresh lettuce, tomato, onion & veg patty with special sauce",
                     image: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=400",
@@ -287,7 +286,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 9,
+                    id: 8,
                     name: "Paneer Tikka Burger",
                     description: "Grilled paneer tikka, spicy sauce & crunchy onions in a toasted bun",
                     image: "https://images.unsplash.com/photo-1629196916211-3dfdc1b4a7b2?w=400",
@@ -308,7 +307,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 10,
+                    id: 9,
                     name: "Aloo Tikki Burger",
                     description: "Crispy aloo tikki with tangy sauces and crunchy veggies",
                     image: "https://images.unsplash.com/photo-1620312536970-7c3c0e5d51cf?w=400",
@@ -327,7 +326,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 11,
+                    id: 10,
                     name: "Cheese Burst Burger",
                     description: "Juicy cheese-filled patty that melts in your mouth with every bite",
                     image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400",
@@ -356,7 +355,7 @@ const FoodCardDemo = () => {
             category: "Chowmein",
             items: [
                 {
-                    id: 12,
+                    id: 11,
                     name: "Veg Hakka Chowmein",
                     description: "Stir-fried noodles tossed with fresh vegetables, soy sauce, and a hint of garlic",
                     image: "https://images.unsplash.com/photo-1600628421055-9d91d1b6a6b8?w=400",
@@ -377,7 +376,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 13,
+                    id: 12,
                     name: "Schezwan Chowmein",
                     description: "Spicy noodles with Schezwan sauce, veggies, and oriental spices for a fiery kick",
                     image: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=400",
@@ -397,7 +396,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 14,
+                    id: 13,
                     name: "Chilli Garlic Noodles",
                     description: "Hot and tangy noodles infused with garlic, chilli flakes, and spring onions",
                     image: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=400",
@@ -416,7 +415,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 15,
+                    id: 14,
                     name: "Paneer Chowmein",
                     description: "Noodles tossed with paneer cubes, vegetables, and flavorful Indo-Chinese sauce",
                     image: "https://images.unsplash.com/photo-1626082927389-6cd97d55c77f?w=400",
@@ -443,7 +442,7 @@ const FoodCardDemo = () => {
             category: "Starters",
             items: [
                 {
-                    id: 16,
+                    id: 15,
                     name: "Paneer Tikka",
                     description: "Grilled cottage cheese cubes marinated in spicy yogurt mix, served with mint chutney",
                     image: "https://images.unsplash.com/photo-1601050690597-7fef8b0c3a2b?w=400",
@@ -464,7 +463,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 17,
+                    id: 16,
                     name: "Veg Manchurian",
                     description: "Crispy vegetable balls tossed in spicy Indo-Chinese Manchurian sauce",
                     image: "https://images.unsplash.com/photo-1626082927389-6cd97d55c77f?w=400",
@@ -483,7 +482,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 18,
+                    id: 17,
                     name: "Crispy Corn",
                     description: "Golden-fried corn kernels tossed with onions, herbs, and a hint of chaat masala",
                     image: "https://images.unsplash.com/photo-1626077874401-8a09256e5f84?w=400",
@@ -502,7 +501,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 19,
+                    id: 18,
                     name: "Hara Bhara Kebab",
                     description: "Healthy spinach and green pea patties shallow fried to perfection",
                     image: "https://images.unsplash.com/photo-1667733937071-62d2779bcd41?w=400",
@@ -521,7 +520,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 20,
+                    id: 19,
                     name: "Cheese Balls",
                     description: "Crispy cheese-stuffed balls served with tangy dip — a cheesy delight",
                     image: "https://images.unsplash.com/photo-1625944525935-d8c5d7e2c035?w=400",
@@ -541,7 +540,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 21,
+                    id: 20,
                     name: "Tandoori Mushroom",
                     description: "Button mushrooms marinated in spiced yogurt and grilled in a clay oven",
                     image: "https://images.unsplash.com/photo-1641746972245-bb22e970742f?w=400",
@@ -567,7 +566,7 @@ const FoodCardDemo = () => {
             category: "South Indian",
             items: [
                 {
-                    id: 24,
+                    id: 21,
                     name: "Masala Dosa",
                     description: "Crispy dosa stuffed with spiced potato filling, served with chutney & sambar",
                     image: "https://images.unsplash.com/photo-1601050690597-1d9b92f6b20d?w=400",
@@ -586,7 +585,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 25,
+                    id: 22,
                     name: "Idli Sambar",
                     description: "Soft steamed idlis served with hot sambar and coconut chutney",
                     image: "https://images.unsplash.com/photo-1617196034796-73dfa1d7f565?w=400",
@@ -604,7 +603,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 26,
+                    id: 23,
                     name: "Uttapam",
                     description: "Thick dosa topped with onions, tomatoes & chilies",
                     image: "https://images.unsplash.com/photo-1596560548462-52b4cb1f9d7f?w=400",
@@ -622,7 +621,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 27,
+                    id: 24,
                     name: "Medu Vada",
                     description: "Crispy lentil doughnuts served with coconut chutney & sambar",
                     image: "https://images.unsplash.com/photo-1617026061346-8a5b3bdfcff9?w=400",
@@ -640,7 +639,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 28,
+                    id: 25,
                     name: "Ven Pongal",
                     description: "Comforting South Indian dish made of rice & moong dal, tempered with ghee & pepper",
                     image: "https://images.unsplash.com/photo-1626082927389-9a476f56b6a9?w=400",
@@ -658,7 +657,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 29,
+                    id: 26,
                     name: "Rava Kesari",
                     description: "Sweet semolina pudding flavored with saffron & cardamom",
                     image: "https://images.unsplash.com/photo-1617191519105-41e64778a639?w=400",
@@ -683,7 +682,7 @@ const FoodCardDemo = () => {
             category: "North Indian",
             items: [
                 {
-                    id: 31,
+                    id: 27,
                     name: "Paneer Butter Masala",
                     description: "Creamy tomato-based curry with soft paneer cubes, cooked in butter and spices",
                     image: "https://images.unsplash.com/photo-1617196034796-73dfa1d7f565?w=400",
@@ -703,7 +702,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 32,
+                    id: 28,
                     name: "Dal Makhani",
                     description: "Slow-cooked black lentils in creamy butter and tomato sauce",
                     image: "https://images.unsplash.com/photo-1625938145542-0401a0e744a2?w=400",
@@ -722,7 +721,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 33,
+                    id: 29,
                     name: "Dal Tadka",
                     description: "Yellow lentils tempered with ghee, cumin, and garlic — simple yet flavorful",
                     image: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=400",
@@ -741,7 +740,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 34,
+                    id: 30,
                     name: "Chole Bhature",
                     description: "Spicy chickpea curry served with fluffy fried bhature and pickle",
                     image: "https://images.unsplash.com/photo-1626776876149-3a4e9429d3c9?w=400",
@@ -760,7 +759,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 35,
+                    id: 31,
                     name: "Rajma Chawal",
                     description: "Comforting red kidney beans curry served with steamed basmati rice",
                     image: "https://images.unsplash.com/photo-1617196034796-73dfa1d7f565?w=400",
@@ -779,7 +778,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 36,
+                    id: 32,
                     name: "Kadai Paneer",
                     description: "Paneer cooked in a spicy tomato gravy with bell peppers & onions",
                     image: "https://images.unsplash.com/photo-1631515242808-497c3a7c52b3?w=400",
@@ -805,7 +804,7 @@ const FoodCardDemo = () => {
             category: "Biryani & Rice",
             items: [
                 {
-                    id: 37,
+                    id: 33,
                     name: "Hyderabadi Veg Biryani",
                     description: "Fragrant basmati rice cooked with spiced vegetables, mint, and saffron",
                     image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400",
@@ -826,7 +825,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 38,
+                    id: 34,
                     name: "Paneer Biryani",
                     description: "Aromatic basmati rice layered with paneer tikka and Hyderabadi spices",
                     image: "https://images.unsplash.com/photo-1642003376880-30a623f3a06e?w=400",
@@ -845,7 +844,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 39,
+                    id: 35,
                     name: "Veg Fried Rice",
                     description: "Stir-fried rice with colorful vegetables and soy seasoning",
                     image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400",
@@ -864,7 +863,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 40,
+                    id: 36,
                     name: "Jeera Rice",
                     description: "Simple and flavorful basmati rice tempered with cumin seeds and ghee",
                     image: "https://images.unsplash.com/photo-1627308595121-8879f37a2867?w=400",
@@ -883,7 +882,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 41,
+                    id: 37,
                     name: "Veg Pulao",
                     description: "Fragrant basmati rice cooked with seasonal veggies and mild spices",
                     image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400",
@@ -902,7 +901,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 42,
+                    id: 38,
                     name: "Curd Rice",
                     description: "South Indian-style rice mixed with creamy curd and tempered with mustard seeds",
                     image: "https://images.unsplash.com/photo-1626132647523-66f2f97b275d?w=400",
@@ -928,7 +927,7 @@ const FoodCardDemo = () => {
             category: "Indian Curries",
             items: [
                 {
-                    id: 43,
+                    id: 39,
                     name: "Paneer Butter Masala",
                     description: "Rich, buttery tomato gravy with soft paneer cubes — a North Indian classic",
                     image: "https://images.unsplash.com/photo-1617196034796-73dfa1d7f565?w=400",
@@ -948,7 +947,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 44,
+                    id: 40,
                     name: "Shahi Paneer",
                     description: "Royal Mughlai curry with paneer cubes cooked in creamy cashew gravy",
                     image: "https://images.unsplash.com/photo-1603899122778-e0a6efb73a3e?w=400",
@@ -967,7 +966,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 45,
+                    id: 41,
                     name: "Palak Paneer",
                     description: "Cubes of paneer simmered in a flavorful spinach and garlic gravy",
                     image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?w=400",
@@ -986,7 +985,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 46,
+                    id: 42,
                     name: "Kadai Vegetable",
                     description: "Assorted seasonal vegetables cooked in a spiced tomato and capsicum gravy",
                     image: "https://images.unsplash.com/photo-1631515242808-497c3a7c52b3?w=400",
@@ -1005,7 +1004,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 47,
+                    id: 43,
                     name: "Malai Kofta",
                     description: "Soft paneer and potato dumplings served in a rich creamy cashew gravy",
                     image: "https://images.unsplash.com/photo-1668236543095-cd2d4ef4ab2c?w=400",
@@ -1032,7 +1031,7 @@ const FoodCardDemo = () => {
             category: "Chinese",
             items: [
                 {
-                    id: 41,
+                    id: 44,
                     name: "Hakka Noodles",
                     description: "Stir-fried noodles tossed with mixed veggies, soy sauce & garlic.",
                     image: "https://images.unsplash.com/photo-1617196034796-73dfa7b1e1b4?w=400",
@@ -1051,7 +1050,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 42,
+                    id: 45,
                     name: "Schezwan Fried Rice",
                     description: "Spicy rice tossed with Schezwan sauce & fresh vegetables.",
                     image: "https://images.unsplash.com/photo-1607114588685-8c2e4e647d2d?w=400",
@@ -1070,7 +1069,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 44,
+                    id: 46,
                     name: "Chilli Paneer Dry",
                     description: "Paneer cubes tossed with onions, capsicum, and spicy soy sauce.",
                     image: "https://images.unsplash.com/photo-1601050690597-4d5b2c748a6c?w=400",
@@ -1089,7 +1088,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 45,
+                    id: 47,
                     name: "Spring Rolls",
                     description: "Crispy golden rolls filled with spiced vegetables.",
                     image: "https://images.unsplash.com/photo-1608039755401-4a4f04e2e3a7?w=400",
@@ -1108,7 +1107,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 46,
+                    id: 48,
                     name: "Veg Momos (Steamed)",
                     description: "Soft dumplings stuffed with spiced veggies, served with chilli sauce.",
                     image: "https://images.unsplash.com/photo-1606755962773-0a0a1e3b81ad?w=400",
@@ -1134,7 +1133,7 @@ const FoodCardDemo = () => {
             category: "Wraps & Rolls",
             items: [
                 {
-                    id: 47,
+                    id: 49,
                     name: "Paneer Kathi Roll",
                     description: "Soft paratha roll stuffed with spicy paneer tikka, onions & mint chutney.",
                     image: "https://images.unsplash.com/photo-1627308595186-e6bb3671285a?w=400",
@@ -1153,7 +1152,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 48,
+                    id: 50,
                     name: "Veg Frankie",
                     description: "Tangy and spicy mixed veg stuffing rolled in a soft roti.",
                     image: "https://images.unsplash.com/photo-1604908177225-0c3f2b7f9f77?w=400",
@@ -1172,7 +1171,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 49,
+                    id: 51,
                     name: "Aloo Tikki Roll",
                     description: "Crispy spiced potato tikki wrapped with lettuce and chutneys.",
                     image: "https://images.unsplash.com/photo-1622445275644-d2064b07a79a?w=400",
@@ -1191,7 +1190,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 50,
+                    id: 52,
                     name: "Paneer Schezwan Roll",
                     description: "Paneer tossed in spicy Schezwan sauce wrapped with veggies in paratha.",
                     image: "https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=400",
@@ -1210,7 +1209,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 51,
+                    id: 53,
                     name: "Mushroom Masala Roll",
                     description: "Juicy mushrooms in spicy masala wrapped with onions and mint sauce.",
                     image: "https://images.unsplash.com/photo-1603030922281-1c62e3f4b24b?w=400",
@@ -1229,7 +1228,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 52,
+                    id: 54,
                     name: "Cheese Burst Veg Roll",
                     description: "Melty cheese-stuffed veg roll with a crispy outer layer and rich flavor.",
                     image: "https://images.unsplash.com/photo-1627042115360-3b4a5b9e8a4b?w=400",
@@ -1256,7 +1255,7 @@ const FoodCardDemo = () => {
             category: "Snacks & Chaats",
             items: [
                 {
-                    id: 53,
+                    id: 55,
                     name: "Pani Puri",
                     description: "Crispy puris served with tangy, spicy, and sweet flavored waters.",
                     image: "https://images.unsplash.com/photo-1626601536900-1b6de38d4d0c?w=400",
@@ -1276,7 +1275,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 54,
+                    id: 56,
                     name: "Bhel Puri",
                     description: "Crispy puffed rice mixed with chutneys, sev, onion & tangy spices.",
                     image: "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=400",
@@ -1295,7 +1294,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 55,
+                    id: 57,
                     name: "Aloo Tikki Chaat",
                     description: "Golden fried potato patties topped with curd, chutneys & spices.",
                     image: "https://images.unsplash.com/photo-1617692855027-c3d4e7aa8c74?w=400",
@@ -1314,7 +1313,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 56,
+                    id: 58,
                     name: "Sev Puri",
                     description: "Crispy puris layered with potatoes, chutneys & topped with sev.",
                     image: "https://images.unsplash.com/photo-1634728388885-0b37761e33a4?w=400",
@@ -1333,7 +1332,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 57,
+                    id: 59,
                     name: "Dahi Puri",
                     description: "Crispy puris filled with potatoes, curd, and sweet chutneys — a cooling delight!",
                     image: "https://images.unsplash.com/photo-1593629714320-d4df9b91c4a5?w=400",
@@ -1352,7 +1351,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 58,
+                    id: 60,
                     name: "Samosa Chaat",
                     description: "Crumbled samosas topped with curd, chutneys & tangy spices — the perfect snack-time dish.",
                     image: "https://images.unsplash.com/photo-1652906703484-b47e1cc39863?w=400",
@@ -1379,7 +1378,7 @@ const FoodCardDemo = () => {
             category: "Healthy & Detox",
             items: [
                 {
-                    id: 59,
+                    id: 61,
                     name: "Quinoa Salad",
                     description: "Protein-rich quinoa tossed with chickpeas, bell peppers, and lemon dressing.",
                     image: "https://images.unsplash.com/photo-1604909053197-3be8e3b0a6f9?w=400",
@@ -1399,7 +1398,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 60,
+                    id: 62,
                     name: "Detox Green Smoothie",
                     description: "A refreshing blend of spinach, cucumber, green apple & mint for a perfect detox.",
                     image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400",
@@ -1419,7 +1418,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 61,
+                    id: 63,
                     name: "Fruit Bowl",
                     description: "Fresh seasonal fruits topped with honey and chia seeds for a natural energy boost.",
                     image: "https://images.unsplash.com/photo-1576402187878-974f70c890a5?w=400",
@@ -1439,7 +1438,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 62,
+                    id: 64,
                     name: "Avocado Toast",
                     description: "Whole-grain toast topped with smashed avocado, lemon juice & chili flakes.",
                     image: "https://images.unsplash.com/photo-1617196034796-73dfa7b1e0c2?w=400",
@@ -1458,7 +1457,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 63,
+                    id: 65,
                     name: "Sprout Salad",
                     description: "A crunchy mix of moong sprouts, cucumber, tomato, and tangy lemon dressing.",
                     image: "https://images.unsplash.com/photo-1627308595189-ff0e5c74a3e3?w=400",
@@ -1477,7 +1476,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 64,
+                    id: 66,
                     name: "Protein Smoothie Bowl",
                     description: "Banana, oats, peanut butter & almond milk blended to perfection — rich in protein.",
                     image: "https://images.unsplash.com/photo-1604908177074-4d8d59a7f4e0?w=400",
@@ -1504,7 +1503,7 @@ const FoodCardDemo = () => {
             category: "Desserts",
             items: [
                 {
-                    id: 57,
+                    id: 67,
                     name: "Gulab Jamun",
                     description: "Soft, sweet milk dumplings soaked in rose-flavored syrup.",
                     image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400",
@@ -1522,7 +1521,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 58,
+                    id: 68,
                     name: "Chocolate Brownie",
                     description: "Warm chocolate brownie served with chocolate syrup.",
                     image: "https://images.unsplash.com/photo-1614707267537-f8d51a6d8c3d?w=400",
@@ -1540,7 +1539,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 59,
+                    id: 69,
                     name: "Rasgulla",
                     description: "Soft and spongy Bengali sweet balls dipped in sugar syrup.",
                     image: "https://images.unsplash.com/photo-1673625163633-3b9c8f215c07?w=400",
@@ -1558,7 +1557,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 60,
+                    id: 70,
                     name: "Ice Cream Sundae",
                     description: "A delightful mix of ice creams topped with syrup and nuts.",
                     image: "https://images.unsplash.com/photo-1599785209707-28f3d5c28e52?w=400",
@@ -1576,7 +1575,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 61,
+                    id: 71,
                     name: "Rasmalai",
                     description: "Soft paneer discs soaked in creamy saffron milk.",
                     image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&fit=crop",
@@ -1594,7 +1593,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 62,
+                    id: 72,
                     name: "Kesar Pista Kulfi",
                     description: "Rich Indian frozen dessert flavored with saffron and pistachio.",
                     image: "https://images.unsplash.com/photo-1604335399105-74bcae6f6a7f?w=400",
@@ -1612,7 +1611,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 63,
+                    id: 73,
                     name: "Mango Mousse",
                     description: "Creamy and refreshing mango-flavored dessert mousse.",
                     image: "https://images.unsplash.com/photo-1589307004394-8d1d8d11aa25?w=400",
@@ -1632,13 +1631,13 @@ const FoodCardDemo = () => {
             ]
         },
 
-        
+
         // Beverages
         {
             category: "Beverages",
             items: [
                 {
-                    id: 64,
+                    id: 74,
                     name: "Mango Lassi",
                     description: "Creamy yogurt-based mango drink with a touch of cardamom.",
                     image: "https://images.unsplash.com/photo-1621263764928-b9778b93d7b0?w=400",
@@ -1656,7 +1655,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 65,
+                    id: 75,
                     name: "Fresh Lime Soda",
                     description: "Refreshing soda with lime and mint — available sweet or salty.",
                     image: "https://images.unsplash.com/photo-1590080875831-a0c92dc91fcd?w=400",
@@ -1674,7 +1673,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 66,
+                    id: 76,
                     name: "Cold Coffee",
                     description: "Chilled coffee with milk and ice cream on top.",
                     image: "https://images.unsplash.com/photo-1590080875831-21d74b6ebdf8?w=400",
@@ -1692,7 +1691,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 67,
+                    id: 77,
                     name: "Masala Chai",
                     description: "Aromatic spiced Indian tea brewed with milk and cardamom.",
                     image: "https://images.unsplash.com/photo-1615485290394-3da43c1f3f33?w=400",
@@ -1710,7 +1709,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 68,
+                    id: 78,
                     name: "Iced Tea",
                     description: "Chilled tea with lemon and mint, perfect for summer.",
                     image: "https://images.unsplash.com/photo-1623066498264-f5c3b8a42e69?w=400",
@@ -1728,7 +1727,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 69,
+                    id: 79,
                     name: "Buttermilk (Chaas)",
                     description: "Refreshing yogurt-based drink with cumin and mint.",
                     image: "https://images.unsplash.com/photo-1621768216002-5d842edc9c93?w=400",
@@ -1746,7 +1745,7 @@ const FoodCardDemo = () => {
                     isVeg: true
                 },
                 {
-                    id: 70,
+                    id: 80,
                     name: "Tender Coconut Water",
                     description: "Natural, hydrating coconut water served chilled.",
                     image: "https://images.unsplash.com/photo-1615485290338-3da43c1f3f33?w=400",
