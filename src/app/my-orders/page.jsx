@@ -883,7 +883,7 @@ const FoodCardDemo = () => {
                 },
                 {
                     id: 37,
-                    name: "Veg Pulao",
+                    name: "Mix Veg Pulao",
                     description: "Fragrant basmati rice cooked with seasonal veggies and mild spices",
                     image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400",
                     basePrice: 179,
@@ -1089,7 +1089,7 @@ const FoodCardDemo = () => {
                 },
                 {
                     id: 47,
-                    name: "Spring Rolls",
+                    name: "Crispy Spring Rolls",
                     description: "Crispy golden rolls filled with spiced vegetables.",
                     image: "https://images.unsplash.com/photo-1608039755401-4a4f04e2e3a7?w=400",
                     basePrice: 159,
@@ -1172,7 +1172,7 @@ const FoodCardDemo = () => {
                 },
                 {
                     id: 51,
-                    name: "Aloo Tikki Roll",
+                    name: "Aloo Tikki Wrap",
                     description: "Crispy spiced potato tikki wrapped with lettuce and chutneys.",
                     image: "https://images.unsplash.com/photo-1622445275644-d2064b07a79a?w=400",
                     basePrice: 109,
@@ -1191,7 +1191,7 @@ const FoodCardDemo = () => {
                 },
                 {
                     id: 52,
-                    name: "Paneer Schezwan Roll",
+                    name: "Schezwan Paneer Wrap",
                     description: "Paneer tossed in spicy Schezwan sauce wrapped with veggies in paratha.",
                     image: "https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=400",
                     basePrice: 159,
@@ -1250,7 +1250,7 @@ const FoodCardDemo = () => {
         },
 
 
-        // 🍴 Snacks & Chaats
+        // Snacks & Chaats
         {
             category: "Snacks & Chaats",
             items: [
@@ -1419,7 +1419,7 @@ const FoodCardDemo = () => {
                 },
                 {
                     id: 63,
-                    name: "Fruit Bowl",
+                    name: "Fruit Salad",
                     description: "Fresh seasonal fruits topped with honey and chia seeds for a natural energy boost.",
                     image: "https://images.unsplash.com/photo-1576402187878-974f70c890a5?w=400",
                     basePrice: 179,
@@ -1674,7 +1674,7 @@ const FoodCardDemo = () => {
                 },
                 {
                     id: 76,
-                    name: "Cold Coffee",
+                    name: "Chocolate Iced Coffee",
                     description: "Chilled coffee with milk and ice cream on top.",
                     image: "https://images.unsplash.com/photo-1590080875831-21d74b6ebdf8?w=400",
                     basePrice: 129,
