@@ -17,7 +17,7 @@ export async function GET(req) {
     }
 
     // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || "mySecretKey");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
     // Fetch user details
     const user = await User.findById(decoded.id).select("-password");
