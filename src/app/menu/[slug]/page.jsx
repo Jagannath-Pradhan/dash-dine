@@ -57,10 +57,14 @@ import Link from "next/link";
 import { getMenuData } from "../components/Menu";
 import { ShoppingCart } from "lucide-react";
 import CategoryClient from "../components/CategoryClient";
+import Navbar from "@/components/Navbar";
+import { getServerSession } from "@/lib/utils/auth";
+import Footer from "@/components/Footer";
 
 export default async function CategoryPage({ params }) {
   const { slug } = await params;
   const { categories, menuItems } = await getMenuData();
+  const user = await getServerSession();
 
   const category = categories.find((c) => c.slug === slug);
 
@@ -84,9 +88,11 @@ export default async function CategoryPage({ params }) {
   const items = menuItems.filter((it) => it.category === slug);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50">
+    <>
+    <Navbar user={user} isScrolled={true} />
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 pt-11">
       {/* Sticky Header */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+      <div className="bg-white border-b border-gray-200 z-40 backdrop-blur-md bg-white/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-4xl font-extrabold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
@@ -124,5 +130,7 @@ export default async function CategoryPage({ params }) {
         )}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

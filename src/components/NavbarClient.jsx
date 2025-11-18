@@ -4,10 +4,12 @@ import { ShoppingCart, User, LogOut, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from "react";
 import axios from "axios";
+import { usePathname } from 'next/navigation';
 
 const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartCount] = useState(3);
+  const pathname = usePathname()
 
   const getAvatarLetters = (name) => {
     if (!name) return '';
@@ -45,18 +47,51 @@ const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
-              <Link href="/menu" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+              {/* <Link href="/menu" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+                Menu
+              </Link> */}
+              <Link
+                href="/menu"
+                className={`transition ${pathname === "/menu"
+                  ? "text-orange-500 font-semibold"   // ACTIVE
+                  : isScrolled
+                    ? "text-gray-700 hover:text-orange-500"
+                    : "text-white hover:text-orange-300"
+                  }`}
+              >
                 Menu
               </Link>
 
               {isLoggedIn && (
-                <Link href="/my-orders" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+                // <Link href="/my-orders" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+                //   My Orders
+                // </Link>
+                <Link
+                  href="/my-orders"
+                  className={`transition ${pathname === "/my-orders"
+                    ? "text-orange-500 font-semibold"   // ACTIVE
+                    : isScrolled
+                      ? "text-gray-700 hover:text-orange-500"
+                      : "text-white hover:text-orange-300"
+                    }`}
+                >
                   My Orders
                 </Link>
               )}
 
               {isLoggedIn && isAdmin && (
-                <Link href="/admin" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+                // <Link href="/admin" className={`transition ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+                //   Admin Panel
+                // </Link>
+                <Link
+                  href="/admin"
+                  className={`transition ${pathname === "/admin"
+                    ? "text-orange-500 font-semibold"
+                    : isScrolled
+                      ? "text-gray-700 hover:text-orange-500"
+                      : "text-white hover:text-orange-300"
+                    }`}
+                >
                   Admin Panel
                 </Link>
               )}
@@ -120,18 +155,51 @@ const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
         <div className={`md:hidden border-t ${isScrolled ? 'bg-white' : 'bg-black bg-opacity-80 backdrop-blur-md'}`}>
           <div className="px-4 py-3 space-y-3">
 
-            <Link href="/menu" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+            {/* <Link href="/menu" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+              Menu
+            </Link> */}
+            <Link
+              href="/menu"
+              className={`block ${pathname === "/menu"
+                ? "text-orange-500 font-semibold"   // ACTIVE
+                : isScrolled
+                  ? "text-gray-700 hover:text-orange-500"
+                  : "text-white hover:text-orange-300"
+                }`}
+            >
               Menu
             </Link>
 
             {isLoggedIn && (
-              <Link href="/my-orders" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+              // <Link href="/my-orders" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+              //   My Orders
+              // </Link>
+              <Link
+                href="/my-orders"
+                className={`block ${pathname === "/my-orders"
+                  ? "text-orange-500 font-semibold"
+                  : isScrolled
+                    ? "text-gray-700 hover:text-orange-500"
+                    : "text-white hover:text-orange-300"
+                  }`}
+              >
                 My Orders
               </Link>
             )}
 
             {isLoggedIn && isAdmin && (
-              <Link href="/admin" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+              // <Link href="/admin" className={`block ${isScrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-300'}`}>
+              //   Admin Panel
+              // </Link>
+              <Link
+                href="/admin"
+                className={`block ${pathname === "/admin"
+                    ? "text-orange-500 font-semibold"
+                    : isScrolled
+                      ? "text-gray-700 hover:text-orange-500"
+                      : "text-white hover:text-orange-300"
+                  }`}
+              >
                 Admin Panel
               </Link>
             )}
