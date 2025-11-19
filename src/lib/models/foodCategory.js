@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 
 const foodCategorySchema = new Schema({
-    name: {
+    categoryName: {
         type: String,
         required: true,
         unique: true,
@@ -13,11 +13,7 @@ const foodCategorySchema = new Schema({
         unique: true,
         lowercase: true,
         trim: true,
-    },
-    count: {
-        type: Number,
-        default: 0,
-    },
+    }
 },
     { timestamps: true }
 );

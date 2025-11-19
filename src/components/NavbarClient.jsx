@@ -194,10 +194,10 @@ const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
               <Link
                 href="/admin"
                 className={`block ${pathname === "/admin"
-                    ? "text-orange-500 font-semibold"
-                    : isScrolled
-                      ? "text-gray-700 hover:text-orange-500"
-                      : "text-white hover:text-orange-300"
+                  ? "text-orange-500 font-semibold"
+                  : isScrolled
+                    ? "text-gray-700 hover:text-orange-500"
+                    : "text-white hover:text-orange-300"
                   }`}
               >
                 Admin Panel

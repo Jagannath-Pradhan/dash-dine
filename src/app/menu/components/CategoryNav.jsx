@@ -73,7 +73,7 @@ export default function CategoryNav({ categories }) {
         </button>
         {categories.map((category) => (
           <button
-            key={category.id}
+            key={category._id}
             onClick={() => scrollToCategory(category.slug)}
             className={`flex-shrink-0 px-6 py-2.5 rounded-full font-medium transition-all duration-200 ${
               activeCategory === category.slug
@@ -81,7 +81,7 @@ export default function CategoryNav({ categories }) {
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
-            {category.name}
+            {category.categoryName}
             <span className="ml-2 text-xs opacity-75">({category.count})</span>
           </button>
         ))}

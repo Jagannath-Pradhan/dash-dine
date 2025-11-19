@@ -4,7 +4,7 @@ export async function getMenuData() {
 
   return {
     categories: [
-      { id: '1', name: 'Pizza', slug: 'pizza', count: 12 },
+      { id: '1', name: 'Pizza', slug: 'pizza', count: 2 },
       { id: '2', name: 'Burger', slug: 'burger', count: 12 },
       { id: '3', name: 'Chowmein', slug: 'chowmein', count: 12 },
       { id: '4', name: 'Starters', slug: 'starters', count: 8 },
