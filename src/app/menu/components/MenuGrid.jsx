@@ -1,4 +1,3 @@
-// components/MenuGrid.jsx
 import MenuItem from './MenuItem';
 import Link from 'next/link';
 
@@ -18,11 +17,11 @@ export default function MenuGrid({ menuItems, categories, previewCount = 4 }) {
         const previewItems = previewCount ? items.slice(0, previewCount) : items;
 
         return (
-          <div key={category.id} id={`category-${category.slug}`} className="scroll-mt-40">
+          <div key={category._id} id={`category-${category.slug}`} className="scroll-mt-40">
             {/* Category Header */}
             <div className="flex items-center gap-4 mb-6">
               <div className="flex-1">
-                <h2 className="text-3xl font-bold text-gray-900">{category.name}</h2>
+                <h2 className="text-3xl font-bold text-gray-900">{category.categoryName}</h2>
                 <p className="text-gray-500 mt-1">{items.length} items available</p>
               </div>
 

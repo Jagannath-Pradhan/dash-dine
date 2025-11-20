@@ -26,7 +26,7 @@ const foodItemSchema = new Schema(
 
         // Reference to category
         category: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: "FoodCategory",
             required: true,
         },
