@@ -11,7 +11,7 @@ export async function GET() {
     await connectDB();
 
     const items = await FoodItem.find()
-      .populate("category", "name slug")
+      .populate("categoryName", "categoryName slug")
       .sort({ createdAt: -1 });
 
     return NextResponse.json(
@@ -45,11 +45,11 @@ export async function POST(req) {
       portions,
       addons,
       isVeg,
-      category,
+      categoryName,
     } = body;
 
     // Basic validation
-    if (!name || !description || !image || !basePrice || !category) {
+    if (!name || !description || !image || !basePrice || !categoryName) {
       return NextResponse.json(
         { success: false, message: "Missing required fields" },
         { status: 400 }
@@ -57,7 +57,7 @@ export async function POST(req) {
     }
 
     // Validate category existence
-    const categoryExists = await FoodCategory.findById(category);
+    const categoryExists = await FoodCategory.findById(categoryName);
     if (!categoryExists) {
       return NextResponse.json(
         { success: false, message: "Invalid category ID" },
@@ -92,7 +92,7 @@ export async function POST(req) {
       portions: portions || [],
       addons: addons || [],
       isVeg: isVeg !== undefined ? isVeg : true,
-      category,
+      categoryName,
     });
 
     return NextResponse.json(
@@ -100,6 +100,7 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
+    console.error("Error creating food item:", error);
     return NextResponse.json(
       { success: false, message: "Failed to create food item", error: error.message },
       { status: 500 }

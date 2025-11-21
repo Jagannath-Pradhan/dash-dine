@@ -25,7 +25,7 @@ const foodItemSchema = new Schema(
         isVeg: { type: Boolean, default: true },
 
         // Reference to category
-        category: {
+        categoryName: {
             type: Schema.Types.ObjectId,
             ref: "FoodCategory",
             required: true,
