@@ -84,7 +84,7 @@ export const metadata = {
     }
   },
 
-  themeColor: "#ffffff",
+  // themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }) {

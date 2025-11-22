@@ -159,7 +159,7 @@ export async function fetchItemsByCategorySlug(slug) {
       price: p.price
     })),
     addons: (item.addons || []).map(a => ({
-      id: a._id ? String(a._0) : (a.id || a._id || Math.random().toString(36).slice(2)),
+      id: a._id ? String(a._id) : (a.id || a._id || Math.random().toString(36).slice(2)),
       name: a.name,
       price: a.price
     })).map(a => ({ ...a, id: a.id || a.name })), // ensure id exists

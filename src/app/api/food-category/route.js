@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/config/db";
 import FoodCategory from "@/lib/models/foodCategory";
+import FoodItem from "@/lib/models/foodItem";
 
 // Utility to validate slug format
 function isValidSlug(value) {
@@ -78,14 +79,38 @@ export async function POST(req) {
  * 📌 GET API → Fetch All Food Categories
  * Returns: id, name, slug, createdAt, updatedAt
  */
+
 export async function GET() {
   try {
     await connectDB();
 
+    // fetch all categories
     const categories = await FoodCategory.find().sort({ createdAt: 1 });
 
+    // fetch item counts for each category (ONE query instead of looping)
+    const counts = await FoodItem.aggregate([
+      {
+        $group: {
+          _id: "$categoryName",
+          count: { $sum: 1 }
+        }
+      }
+    ]);
+
+    // convert aggregation result into an easy lookup map
+    const countMap = {};
+    counts.forEach(c => {
+      countMap[c._id?.toString()] = c.count;
+    });
+
+    // attach count to each category
+    const categoriesWithCount = categories.map(cat => ({
+      ...cat.toObject(),
+      count: countMap[cat._id.toString()] || 0
+    }));
+
     return NextResponse.json(
-      { success: true, count: categories.length, data: categories },
+      { success: true, count: categories.length, data: categoriesWithCount },
       { status: 200 }
     );
   } catch (error) {
