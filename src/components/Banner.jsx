@@ -34,9 +34,10 @@ const Banner = () => {
           </div>
           <div className="lg:w-1/2 flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1526367790999-0150786686a2?w=600&h=600&fit=crop"
+              // src="https://images.unsplash.com/photo-1526367790999-0150786686a2?w=600&h=600&fit=crop"
+              src="./advertisement.png"
               alt="Delivery Person"
-              className="rounded-2xl shadow-2xl max-w-md w-full"
+              // className="rounded-2xl shadow-2xl max-w-md w-full"
             />
           </div>
         </div>

@@ -29,7 +29,7 @@ export default function MenuGrid({ menuItems, categories, previewCount = 4 }) {
               <div className="ml-4">
                 <Link
                   href={`/menu/${category.slug}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all text-sm bg-white border border-gray-200 hover:bg-gray-50 shadow-sm"
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg font-medium transition-all text-sm bg-white border border-gray-200 hover:bg-gray-50 shadow-sm"
                 >
                   View all
                   <span className="text-xs text-gray-500">({items.length})</span>

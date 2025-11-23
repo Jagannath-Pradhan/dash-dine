@@ -1,4 +1,4 @@
-import { ChevronRight, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const categories = [
   {
@@ -34,24 +34,20 @@ const CategorySection = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800">Popular by Category</h2>
+        <h2 className="text-3xl font-bold text-gray-800">Popular by Category 🥗</h2>
       </div>
 
       {categories.map((category, catIndex) => (
         <div key={catIndex} className="mb-12">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-2xl font-semibold text-gray-800">{category.name}</h3>
-            <button className="text-orange-500 hover:text-orange-600 font-medium flex items-center space-x-1">
-              <span>View All</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {category.items.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 overflow-hidden cursor-pointer"
+                className="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 overflow-hidden"
               >
                 <div className="relative h-48">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
@@ -60,14 +56,9 @@ const CategorySection = () => {
                     <span className="text-sm font-semibold">{item.rating}</span>
                   </div>
                 </div>
-                <div className="p-4">
+                <div className="p-4 flex justify-between items-center">
                   <h4 className="font-semibold text-lg mb-2">{item.name}</h4>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xl font-bold text-orange-500">₹{item.price}</span>
-                    <button className="px-4 py-2 bg-linear-to-r from-orange-500 to-red-500 text-white rounded-lg text-sm hover:shadow-lg transition">
-                      Add
-                    </button>
-                  </div>
+                  <span className="text-xl font-bold text-orange-500">₹{item.price}</span>
                 </div>
               </div>
             ))}

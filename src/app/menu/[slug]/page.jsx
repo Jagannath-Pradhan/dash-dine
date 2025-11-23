@@ -60,7 +60,7 @@ export default async function CategoryPage({ params }) {
         <div className="bg-white border-b border-gray-200 z-40 backdrop-blur-md bg-white/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h1 className="text-4xl font-extrabold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-extrabold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mt-3">
                 {category.categoryName ?? category.name}
               </h1>
               <p className="text-gray-600 mt-1">{(items || []).length} delicious {(items || []).length === 1 ? 'item' : 'items'} available</p>
