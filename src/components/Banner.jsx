@@ -1,4 +1,5 @@
 import { Clock, MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 const Banner = () => {
   return (
@@ -28,9 +29,9 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <button className="px-8 py-3 bg-linear-to-r from-orange-500 to-red-500 text-white rounded-lg font-semibold hover:shadow-xl transition transform hover:scale-105">
-              Order Now
-            </button>
+            <Link href="/menu" className="px-8 py-3 bg-linear-to-r from-orange-500 to-red-500 text-white rounded-lg font-semibold hover:shadow-xl transition transform hover:scale-105">
+              Browse Menu 🍕
+            </Link>
           </div>
           <div className="lg:w-1/2 flex justify-center">
             <img

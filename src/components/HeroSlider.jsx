@@ -79,9 +79,9 @@ const HeroSlider = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-6 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">
+                  {/* <button className="px-6 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">
                     {slide.cta1}
-                  </button>
+                  </button> */}
                   <Link href="/menu" className="px-6 py-2 sm:px-8 sm:py-3 bg-white text-gray-800 rounded-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">
                     {slide.cta2}
                   </Link>

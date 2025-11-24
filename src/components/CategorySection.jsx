@@ -4,28 +4,28 @@ const categories = [
   {
     name: 'Indian',
     items: [
-      { id: 1, name: 'Butter Chicken', price: 299, image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300&h=200&fit=crop', rating: 4.5 },
-      { id: 2, name: 'Biryani', price: 249, image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&h=200&fit=crop', rating: 4.7 },
-      { id: 3, name: 'Paneer Tikka', price: 199, image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=300&h=200&fit=crop', rating: 4.3 },
-      { id: 4, name: 'Dal Makhani', price: 179, image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=200&fit=crop', rating: 4.6 }
+      { id: 1, name: 'Masala Dosa', price: 149, image: './south-indian/masala-dosa.webp', rating: 4.7 },
+      { id: 2, name: 'Paneer Butter Masala', price: 229, image: './north-indian/paneer-butter-masala.webp', rating: 4.8 },
+      { id: 3, name: 'Dal Tadka', price: 179, image: './north-indian/dal-tadka.webp', rating: 4.5 },
+      { id: 4, name: 'Pani Puri', price: 69, image: './snacks-chaats/pani-puri.jpg', rating: 4.9 }
     ]
   },
   {
     name: 'Chinese',
     items: [
-      { id: 5, name: 'Hakka Noodles', price: 189, image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300&h=200&fit=crop', rating: 4.4 },
-      { id: 6, name: 'Manchurian', price: 219, image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300&h=200&fit=crop', rating: 4.5 },
-      { id: 7, name: 'Fried Rice', price: 169, image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&h=200&fit=crop', rating: 4.2 },
-      { id: 8, name: 'Spring Rolls', price: 149, image: 'https://images.unsplash.com/photo-1619895092538-128341789043?w=300&h=200&fit=crop', rating: 4.3 }
+      { id: 5, name: 'Hakka Noodles', price: 169, image: './chinese/hakka-noodles.webp', rating: 3.5 },
+      { id: 6, name: 'Manchurian', price: 199, image: './starters/veg-manchurian.webp', rating: 4.6 },
+      { id: 7, name: 'Spring Rolls', price: 159, image: './chinese/crispy-spring-rolls.webp', rating: 4.3 },
+      { id: 8, name: 'Schezwan Fried Rice', price: 179, image: './chinese/schezwan-fried-rice.webp', rating: 4.3 }
     ]
   },
   {
-    name: 'Italian',
+    name: 'Beverages & Desserts',
     items: [
-      { id: 9, name: 'Margherita Pizza', price: 349, image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop', rating: 4.8 },
-      { id: 10, name: 'Pasta Alfredo', price: 279, image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=300&h=200&fit=crop', rating: 4.6 },
-      { id: 11, name: 'Lasagna', price: 329, image: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=300&h=200&fit=crop', rating: 4.7 },
-      { id: 12, name: 'Garlic Bread', price: 129, image: 'https://images.unsplash.com/photo-1573140401552-3fab0b24f2b6?w=300&h=200&fit=crop', rating: 4.4 }
+      { id: 9, name: 'Buttermilk (Chaas)', price: 69, image: './beverages/buttermilk.webp', rating: 4.7 },
+      { id: 10, name: 'Gulab Jamun', price: 99, image: './desserts/gulab-jamuns.jpg', rating: 4.8 },
+      { id: 11, name: 'Mango Lassi', price: 99, image: './beverages/mango-lassi.jpg', rating: 4.8 },
+      { id: 12, name: 'Ice Cream Sundae', price: 179, image: './desserts/ice-cream-sundae.jpg', rating: 4.7 }
     ]
   }
 ];

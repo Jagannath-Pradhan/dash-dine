@@ -11,14 +11,14 @@ const MobileAppBanner = () => {
               Order faster and easier with our mobile app. Available on iOS and Android.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-black hover:bg-gray-900 px-6 py-3 rounded-lg flex items-center space-x-3 transition">
+              <button className="bg-black hover:bg-gray-900 px-6 py-3 rounded-lg flex items-center space-x-3 transition hover:-translate-y-1">
                 <div className="text-2xl">📱</div>
                 <div className="text-left">
                   <div className="text-xs">Download on the</div>
                   <div className="text-lg font-semibold">App Store</div>
                 </div>
               </button>
-              <button className="bg-black hover:bg-gray-900 px-6 py-3 rounded-lg flex items-center space-x-3 transition">
+              <button className="bg-black hover:bg-gray-900 px-6 py-3 rounded-lg flex items-center space-x-3 transition hover:-translate-y-1">
                 <div className="text-2xl">🤖</div>
                 <div className="text-left">
                   <div className="text-xs">GET IT ON</div>
