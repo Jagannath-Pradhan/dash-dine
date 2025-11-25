@@ -4,12 +4,13 @@ import { ShoppingCart, User, LogOut, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from "react";
 import axios from "axios";
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartCount] = useState(3);
   const pathname = usePathname()
+  const router = useRouter();
 
   const getAvatarLetters = (name) => {
     if (!name) return '';
@@ -28,11 +29,15 @@ const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
   const handleLogout = async () => {
     try {
       await axios.get("/api/auth/logout");
-      window.location.reload();
+      router.push("/");
     } catch (err) {
       console.error("Logout failed:", err);
     }
   };
+
+  const handleMyCart = () => {
+    router.push('/my-cart');
+  }
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
@@ -102,7 +107,7 @@ const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
           <div className="hidden md:flex items-center space-x-4">
             {isLoggedIn && (
               <div className="relative">
-                <button className={`p-2 rounded-full transition relative cursor-pointer ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white hover:bg-opacity-20'}`}>
+                <button onClick={handleMyCart} className={`p-2 rounded-full transition relative cursor-pointer ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white hover:bg-opacity-20'}`}>
                   <ShoppingCart className={`w-5 h-5 ${isScrolled ? 'text-gray-700' : 'text-white hover:text-black'}`} />
                   {cartCount > 0 && (
                     <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
