@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 async function getCartData(userId) {
   try {
     // Replace with your actual API endpoint
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cart/${userId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/cart/${userId}`, {
       cache: 'no-store', // Always fetch fresh data
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ async function getCartData(userId) {
 
 async function getDeliveryConfig() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/config/delivery`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/config/delivery`, {
       cache: 'force-cache', // Can cache delivery config
       next: { revalidate: 3600 }, // Revalidate every hour
     });

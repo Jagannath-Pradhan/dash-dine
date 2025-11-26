@@ -6,8 +6,8 @@ import CartItem from './CartItem';
 import BillDetails from './BillDetails';
 import EmptyCart from './EmptyCart';
 import CouponModal from './CouponModal';
-import { useRouter } from 'next/navigation';
 import EditItemModal from './EditItemModal';
+import { useRouter } from 'next/navigation';
 
 const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
   const router = useRouter();
