@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { useState } from "react";
 import axios from "axios";
 import { usePathname, useRouter } from 'next/navigation';
+import { useCart } from '@/context/CartContext';
 
 const NavbarClient = ({ isLoggedIn, userName, userRole, isScrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [cartCount] = useState(3);
   const pathname = usePathname()
   const router = useRouter();
+  // const [cartCount] = useState(3);
+  const { cartCount } = useCart();
 
   const getAvatarLetters = (name) => {
     if (!name) return '';
