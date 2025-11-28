@@ -19,7 +19,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
 
   // Load cart from localStorage on mount (client-side persistence)
   useEffect(() => {
-    const localCart = localStorage.getItem('foodDeliveryCart');
+    const localCart = localStorage.getItem('dashdine-cart');
     if (localCart) {
       try {
         const parsed = JSON.parse(localCart);
@@ -35,14 +35,14 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
   // Save cart to localStorage whenever it changes
   useEffect(() => {
     if (cartItems.length > 0) {
-      localStorage.setItem('foodDeliveryCart', JSON.stringify(cartItems));
+      localStorage.setItem('dashdine-cart', JSON.stringify(cartItems));
       
       // Sync with backend for logged users
       if (userId !== 'guest') {
         syncCartWithBackend();
       }
     } else {
-      localStorage.removeItem('foodDeliveryCart');
+      localStorage.removeItem('dashdine-cart');
     }
   }, [cartItems, userId]);
 
