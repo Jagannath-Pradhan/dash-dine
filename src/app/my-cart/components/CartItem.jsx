@@ -1,6 +1,6 @@
 'use client'
 
-import { Plus, Minus, Trash2, Edit3 } from 'lucide-react';
+import { Plus, Minus, Trash2, Pencil } from 'lucide-react';
 import { useState } from 'react';
 
 const CartItem = ({ item, onUpdateQuantity, onRemove, onEdit }) => {
@@ -54,7 +54,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove, onEdit }) => {
                 className="flex-shrink-0 p-2 text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
                 title="Edit item"
               >
-                <Edit3 className="w-4 h-4" />
+                <Pencil className="w-4 h-4" />
               </button>
             </div>
 

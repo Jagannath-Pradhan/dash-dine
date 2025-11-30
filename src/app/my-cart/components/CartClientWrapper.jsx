@@ -36,7 +36,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
   useEffect(() => {
     if (cartItems.length > 0) {
       localStorage.setItem('dashdine-cart', JSON.stringify(cartItems));
-      
+
       // Sync with backend for logged users
       if (userId !== 'guest') {
         syncCartWithBackend();
@@ -71,7 +71,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
   const calculateDiscount = () => {
     if (!appliedCoupon) return 0;
     const subtotal = calculateSubtotal();
-    
+
     if (appliedCoupon.type === 'percentage') {
       return Math.min(
         (subtotal * appliedCoupon.value) / 100,
@@ -86,13 +86,13 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
     const delivery = calculateDeliveryFee();
     const discount = calculateDiscount();
     const packaging = deliveryConfig.packagingCharges || 0;
-    
+
     return Math.max(0, subtotal + delivery + packaging - discount);
   };
 
   const updateQuantity = (itemId, newQuantity) => {
     if (newQuantity < 1) return;
-    
+
     setCartItems(prev =>
       prev.map(item => {
         if (item.cartItemId === itemId) {
@@ -130,7 +130,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
 
   const handleCheckout = () => {
     if (cartItems.length === 0) return;
-    
+
     // Store checkout data
     const checkoutData = {
       items: cartItems,
@@ -140,7 +140,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
       total: calculateTotal(),
       coupon: appliedCoupon,
     };
-    
+
     sessionStorage.setItem('checkoutData', JSON.stringify(checkoutData));
     router.push('/checkout/address');
   };
@@ -163,9 +163,9 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
             className="flex items-center gap-2 text-gray-700 hover:text-orange-600 transition-colors mb-4 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            <span className="font-medium">Continue Shopping</span>
+            <span className="font-medium">Pick More Dishes</span>
           </button>
-          
+
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 flex items-center gap-3">
@@ -174,7 +174,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
               </h1>
               <p className="text-gray-600 mt-1">{cartItems.length} items in your cart</p>
             </div>
-            
+
             {cartItems.length > 0 && (
               <button
                 onClick={clearCart}

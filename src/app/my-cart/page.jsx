@@ -1,4 +1,3 @@
-// app/my-cart/page.jsx
 import { Suspense } from 'react';
 import CartClientWrapper from './components/CartClientWrapper';
 import CartSkeleton from './components/CartSkeleton';
@@ -54,9 +53,11 @@ export const metadata = {
   description: 'Review your cart and proceed to checkout',
 };
 
-export default async function CartPage({ searchParams }) {
+export default async function CartPage(props) {
   // Get userId from session/cookie in real app
-  const userId = searchParams?.userId || 'guest';
+  const { searchParams } = props;
+  const resolvedParams = await searchParams
+  const userId = resolvedParams?.userId || 'guest';
 
   // Fetch data on server
   const [serverCart, deliveryConfig] = await Promise.all([

@@ -93,7 +93,7 @@ export default async function CategoryPage({ params }) {
                 // Defensive normalization so FoodCard always gets the fields it expects
                 const normalized = {
                   _id: item._id ?? item.id ?? item._id,
-                  id: item._id ?? item.id,
+                  // id: item._id ?? item.id,
                   name: item.name ?? item.title ?? "Untitled",
                   description: item.description ?? "",
                   image: item.image ?? "/images/placeholder-food.png",
@@ -113,7 +113,7 @@ export default async function CategoryPage({ params }) {
 
                 return (
                   <FoodCard
-                    key={normalized.id}
+                    key={normalized._id}
                     item={normalized}
                     showQuantity={true}
                     showPortions={true}
