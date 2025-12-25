@@ -4,21 +4,30 @@ import { Plus, Minus, Trash2, Pencil } from 'lucide-react';
 import { useState } from 'react';
 
 const CartItem = ({ item, onUpdateQuantity, onRemove, onEdit }) => {
+  // console.log('Rendering CartItem:', item);
   const [isRemoving, setIsRemoving] = useState(false);
 
   const handleRemove = () => {
     setIsRemoving(true);
-    setTimeout(() => onRemove(item.cartItemId), 300);
+    setTimeout(() => onRemove(item._id), 300);
   };
 
   const pricePerUnit = item.totalPrice / item.quantity;
 
   return (
+    // <div
+    //   className={`bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 ${
+    //     isRemoving ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+    //   }`}
+    // >
     <div
-      className={`bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 ${
-        isRemoving ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-      }`}
+      className={`
+    bg-white rounded-2xl shadow-md hover:shadow-xl
+    transition-all duration-300 overflow-hidden border border-gray-100
+    ${isRemoving ? 'opacity-0 scale-95 max-h-0 mb-0' : 'opacity-100 scale-100 max-h-[1000px]'}
+  `}
     >
+
       <div className="p-4 sm:p-5">
         <div className="flex gap-4">
           {/* Image */}
@@ -48,7 +57,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove, onEdit }) => {
                   </span>
                 )}
               </div>
-              
+
               <button
                 onClick={onEdit}
                 className="flex-shrink-0 p-2 text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
@@ -88,7 +97,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove, onEdit }) => {
             <div className="flex items-center justify-between mt-3">
               <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-1">
                 <button
-                  onClick={() => onUpdateQuantity(item.cartItemId, item.quantity - 1)}
+                  onClick={() => onUpdateQuantity(item._id, item.quantity - 1)}
                   disabled={item.quantity <= 1}
                   className="w-7 h-7 rounded-md bg-white shadow hover:bg-orange-500 hover:text-white transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-gray-800"
                 >
@@ -98,7 +107,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove, onEdit }) => {
                   {item.quantity}
                 </span>
                 <button
-                  onClick={() => onUpdateQuantity(item.cartItemId, item.quantity + 1)}
+                  onClick={() => onUpdateQuantity(item._id, item.quantity + 1)}
                   className="w-7 h-7 rounded-md bg-white shadow hover:bg-orange-500 hover:text-white transition-colors flex items-center justify-center"
                 >
                   <Plus className="w-3.5 h-3.5" />

@@ -36,6 +36,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
   useEffect(() => {
     if (cartItems.length > 0) {
       localStorage.setItem('dashdine-cart', JSON.stringify(cartItems));
+      console.log(cartItems)
 
       // Sync with backend for logged users
       if (userId !== 'guest') {
@@ -95,7 +96,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
 
     setCartItems(prev =>
       prev.map(item => {
-        if (item.cartItemId === itemId) {
+        if (item._id === itemId) {
           const pricePerUnit = item.totalPrice / item.quantity;
           return {
             ...item,
@@ -109,13 +110,14 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
   };
 
   const removeItem = (itemId) => {
-    setCartItems(prev => prev.filter(item => item.cartItemId !== itemId));
+    // setCartItems(prev => prev.filter(item => item.cartItemId !== itemId));
+    setCartItems(prev => prev.filter(item => item._id !== itemId));
   };
 
   const updateItemDetails = (itemId, updates) => {
     setCartItems(prev =>
       prev.map(item => {
-        if (item.cartItemId === itemId) {
+        if (item._id === itemId) {
           return { ...item, ...updates };
         }
         return item;
@@ -172,7 +174,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
                 <ShoppingBag className="w-8 h-8 text-orange-500" />
                 My Cart
               </h1>
-              <p className="text-gray-600 mt-1">{cartItems.length} items in your cart</p>
+              <p className="text-gray-600 mt-1">{cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} in your cart</p>
             </div>
 
             {cartItems.length > 0 && (
@@ -212,7 +214,7 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
           <div className="lg:col-span-2 space-y-4">
             {cartItems.map((item) => (
               <CartItem
-                key={item.cartItemId}
+                key={item._id}
                 item={item}
                 onUpdateQuantity={updateQuantity}
                 onRemove={removeItem}

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { X, Plus, Minus, Save } from 'lucide-react';
 
 const EditItemModal = ({ item, onClose, onUpdate }) => {
+  // console.log('Editing item:', item);
   const [quantity, setQuantity] = useState(item.quantity);
   const [selectedPortion, setSelectedPortion] = useState(item.selectedPortion);
   const [selectedAddons, setSelectedAddons] = useState(item.selectedAddons || []);
@@ -42,7 +43,7 @@ const EditItemModal = ({ item, onClose, onUpdate }) => {
       totalPrice: calculateNewPrice(),
     };
     
-    onUpdate(item.cartItemId, updates);
+    onUpdate(item._id, updates);
     onClose();
   };
 
@@ -56,7 +57,7 @@ const EditItemModal = ({ item, onClose, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden animate-slideUp">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[100vh] overflow-hidden animate-slideUp">
         {/* Header */}
         <div className="bg-gradient-to-r from-orange-500 to-red-500 p-5 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white">Edit Item</h2>
