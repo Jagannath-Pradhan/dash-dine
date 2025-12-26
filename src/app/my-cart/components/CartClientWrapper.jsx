@@ -33,19 +33,39 @@ const CartClientWrapper = ({ initialCart, deliveryConfig, userId }) => {
   }, [initialCart]);
 
   // Save cart to localStorage whenever it changes
-  useEffect(() => {
-    if (cartItems.length > 0) {
-      localStorage.setItem('dashdine-cart', JSON.stringify(cartItems));
-      console.log(cartItems)
+  // useEffect(() => {
+  //   if (cartItems.length > 0) {
+  //     localStorage.setItem('dashdine-cart', JSON.stringify(cartItems));
+  //     console.log(cartItems)
 
-      // Sync with backend for logged users
-      if (userId !== 'guest') {
-        syncCartWithBackend();
-      }
-    } else {
-      localStorage.removeItem('dashdine-cart');
+  //     // Sync with backend for logged users
+  //     if (userId !== 'guest') {
+  //       syncCartWithBackend();
+  //     }
+  //   } else {
+  //     localStorage.removeItem('dashdine-cart');
+  //   }
+  // }, [cartItems, userId]);
+
+useEffect(() => {
+  if (cartItems.length > 0) {
+    localStorage.setItem('dashdine-cart', JSON.stringify(cartItems));
+
+    // 🔥 ADD THIS LINE
+    window.dispatchEvent(new Event('cart-updated'));
+
+    if (userId !== 'guest') {
+      syncCartWithBackend();
     }
-  }, [cartItems, userId]);
+  } else {
+    localStorage.removeItem('dashdine-cart');
+
+    // 🔥 ADD THIS LINE
+    window.dispatchEvent(new Event('cart-updated'));
+  }
+}, [cartItems, userId]);
+
+
 
   const syncCartWithBackend = async () => {
     try {

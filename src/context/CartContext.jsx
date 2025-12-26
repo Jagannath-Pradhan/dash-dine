@@ -1,3 +1,69 @@
+// 'use client';
+
+// import { createContext, useContext, useState, useEffect } from "react";
+
+// const CartContext = createContext();
+
+// export const CartProvider = ({ children }) => {
+//   const [cart, setCart] = useState([]);
+
+//   // Load saved cart from localStorage
+//   useEffect(() => {
+//     const saved = localStorage.getItem("dashdine-cart");
+//     if (saved) setCart(JSON.parse(saved));
+//   }, []);
+
+//   // Save to localStorage whenever cart changes
+//   useEffect(() => {
+//     localStorage.setItem("dashdine-cart", JSON.stringify(cart));
+//   }, [cart]);
+
+//   // Add Item to Cart
+//   const addToCart = (item) => {
+//     setCart((prev) => [...prev, item]);
+//   };
+
+//   // remove Item from Cart
+//   // const removeFromCart = (id) => {
+//   //   setCart((prev) => prev.filter((c) => c.id !== id));
+//   // };
+// const removeFromCart = (_id) => {
+//   setCart(prev => prev.filter(item => item._id !== _id));
+// };
+
+//   // Clear Cart
+//   // const clearCart = () => setCart([]);
+//   const clearCart = () => {
+//   clearCart();
+//   setAppliedCoupon(null);
+// };
+
+
+//   return (
+//     <CartContext.Provider
+//       value={{
+//         cart,
+//         addToCart,
+//         removeFromCart,
+//         clearCart,
+//         cartCount: cart.length
+//       }}
+//     >
+//       {children}
+//     </CartContext.Provider>
+//   );
+// };
+
+// export const useCart = () => useContext(CartContext);
+
+
+
+
+
+
+
+
+
 'use client';
 
 import { createContext, useContext, useState, useEffect } from "react";
@@ -7,29 +73,46 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Load saved cart from localStorage
-  useEffect(() => {
+  // Load cart initially
+  const loadCart = () => {
     const saved = localStorage.getItem("dashdine-cart");
-    if (saved) setCart(JSON.parse(saved));
+    setCart(saved ? JSON.parse(saved) : []);
+  };
+
+  useEffect(() => {
+    loadCart();
+
+    // Listen to cart updates from anywhere
+    const handleCartUpdate = () => loadCart();
+
+    window.addEventListener("cart-updated", handleCartUpdate);
+    window.addEventListener("storage", handleCartUpdate);
+
+    return () => {
+      window.removeEventListener("cart-updated", handleCartUpdate);
+      window.removeEventListener("storage", handleCartUpdate);
+    };
   }, []);
 
-  // Save to localStorage whenever cart changes
-  useEffect(() => {
-    localStorage.setItem("dashdine-cart", JSON.stringify(cart));
-  }, [cart]);
-
-  // Add Item to Cart
   const addToCart = (item) => {
-    setCart((prev) => [...prev, item]);
+    const updated = [...cart, item];
+    setCart(updated);
+    localStorage.setItem("dashdine-cart", JSON.stringify(updated));
+    window.dispatchEvent(new Event("cart-updated"));
   };
 
-  // remove Item from Cart
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((c) => c.id !== id));
+  const removeFromCart = (_id) => {
+    const updated = cart.filter(item => item._id !== _id);
+    setCart(updated);
+    localStorage.setItem("dashdine-cart", JSON.stringify(updated));
+    window.dispatchEvent(new Event("cart-updated"));
   };
 
-  // Clear Cart
-  const clearCart = () => setCart([]);
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("dashdine-cart");
+    window.dispatchEvent(new Event("cart-updated"));
+  };
 
   return (
     <CartContext.Provider
@@ -47,6 +130,13 @@ export const CartProvider = ({ children }) => {
 };
 
 export const useCart = () => useContext(CartContext);
+
+
+
+
+
+
+
 
 
 
