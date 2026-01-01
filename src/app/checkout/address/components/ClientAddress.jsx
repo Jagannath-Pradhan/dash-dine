@@ -273,66 +273,51 @@ export default function ClientAddress({ user }) {
     }
     setCheckoutData(JSON.parse(data));
 
-    // Mock addresses — replace with API call to fetch from MongoDB
-    // Future: fetch('/api/addresses').then(res => res.json()).then(setAddresses)
-    const savedAddresses = [
-      {
-        _id: "1", // MongoDB will use _id
-        userId: user?.id, // Link to user
-        type: "home",
-        name: "Home",
-        line1: "123, MG Road",
-        line2: "Near Central Mall",
-        city: "Angul",
-        state: "Odisha",
-        pincode: "759103",
-        phone: "+91 83389 01176",
-        isDefault: true,
-        createdAt: new Date().toISOString(),
-      },
-      {
-        _id: "2",
-        userId: user?.id,
-        type: "work",
-        name: "Office",
-        line1: "Tech Park, Building 4",
-        line2: "Rajiv Gandhi Salai",
-        city: "BBSR",
-        state: "Odisha",
-        pincode: "759103",
-        phone: "+91 83389 01176",
-        isDefault: false,
-        createdAt: new Date().toISOString(),
-      },
-    ];
+    const fetchAddresses = async () => {
+      try {
+        const res = await fetch("/api/addresses", {
+          method: "GET",
+          credentials: "include",
+        });
 
-    setAddresses(savedAddresses);
-    setSelectedAddress(savedAddresses.find((a) => a.isDefault) || savedAddresses[0]);
-  }, [router, user]);
+        if (!res.ok) throw new Error("Failed to fetch addresses");
 
-  const handleAddAddress = (newAddress) => {
-    // Future MongoDB: POST /api/addresses
-    const addressToAdd = {
-      ...newAddress,
-      _id: Date.now().toString(), // MongoDB will auto-generate _id
-      userId: user?.id,
-      createdAt: new Date().toISOString(),
+        const data = await res.json();
+        setAddresses(data);
+        setSelectedAddress(data.find(a => a.isDefault) || data[0] || null);
+      } catch (err) {
+        console.error(err);
+      }
     };
 
-    // If this is the first address or marked as default, set it as default
-    if (addresses.length === 0 || newAddress.isDefault) {
-      setAddresses((prev) =>
-        prev.map((addr) => ({ ...addr, isDefault: false })).concat(addressToAdd)
-      );
-    } else {
-      setAddresses((prev) => [...prev, addressToAdd]);
-    }
+    fetchAddresses();
+  }, [router]);
+  
+  const handleAddAddress = async (newAddress) => {
+    try {
+      const res = await fetch("/api/addresses", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(newAddress),
+      });
 
-    setShowAddForm(false);
-    
-    // Auto-select if it's the first address
-    if (addresses.length === 0 || newAddress.isDefault) {
-      setSelectedAddress(addressToAdd);
+      if (!res.ok) throw new Error("Failed to add address");
+
+      const savedAddress = await res.json();
+
+      setAddresses((prev) => {
+        const updated = savedAddress.isDefault
+          ? prev.map(a => ({ ...a, isDefault: false }))
+          : prev;
+        return [...updated, savedAddress];
+      });
+
+      setSelectedAddress(savedAddress);
+      setShowAddForm(false);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to add address");
     }
   };
 
@@ -366,7 +351,7 @@ export default function ClientAddress({ user }) {
   const handleDeleteAddress = (addressId) => {
     // Future MongoDB: DELETE /api/addresses/:id
     const addressToDelete = addresses.find((a) => a._id === addressId);
-    
+
     if (addresses.length === 1) {
       alert("You must have at least one address");
       return;
