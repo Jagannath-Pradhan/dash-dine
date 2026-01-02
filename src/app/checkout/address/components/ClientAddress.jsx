@@ -321,64 +321,75 @@ export default function ClientAddress({ user }) {
     }
   };
 
-  const handleEditAddress = (updatedAddress) => {
-    // Future MongoDB: PUT /api/addresses/:id
+  const handleEditAddress = async (updatedAddress) => {
+  try {
+    const res = await fetch(`/api/addresses/${updatedAddress._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(updatedAddress),
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error || "Failed to update address");
+    }
+
+    const savedAddress = await res.json();
+
     setAddresses((prev) =>
-      prev.map((addr) => {
-        if (addr._id === updatedAddress._id) {
-          // If setting as default, unset others
-          if (updatedAddress.isDefault && !addr.isDefault) {
-            return updatedAddress;
-          }
-          return updatedAddress;
-        }
-        // Unset default from others if new default is set
-        if (updatedAddress.isDefault) {
-          return { ...addr, isDefault: false };
-        }
-        return addr;
-      })
+      prev.map((addr) =>
+        addr._id === savedAddress._id
+          ? savedAddress
+          : savedAddress.isDefault
+          ? { ...addr, isDefault: false }
+          : addr
+      )
     );
 
-    // Update selected address if it was edited
-    if (selectedAddress?._id === updatedAddress._id) {
-      setSelectedAddress(updatedAddress);
+    if (selectedAddress?._id === savedAddress._id) {
+      setSelectedAddress(savedAddress);
     }
 
     setEditingAddress(null);
-  };
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
 
-  const handleDeleteAddress = (addressId) => {
-    // Future MongoDB: DELETE /api/addresses/:id
-    const addressToDelete = addresses.find((a) => a._id === addressId);
+  const handleDeleteAddress = async (addressId) => {
+  if (!window.confirm("Are you sure you want to delete this address?")) return;
 
-    if (addresses.length === 1) {
-      alert("You must have at least one address");
-      return;
+  try {
+    const res = await fetch(`/api/addresses/${addressId}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Failed to delete address");
     }
 
-    if (window.confirm("Are you sure you want to delete this address?")) {
-      setAddresses((prev) => prev.filter((addr) => addr._id !== addressId));
+    setAddresses((prev) => {
+      const remaining = prev.filter((addr) => addr._id !== addressId);
 
-      // If deleted address was selected, select another
+      // Update selected address
       if (selectedAddress?._id === addressId) {
-        const remaining = addresses.filter((a) => a._id !== addressId);
         setSelectedAddress(remaining[0] || null);
       }
 
-      // If deleted address was default, make first remaining default
-      if (addressToDelete?.isDefault && addresses.length > 1) {
-        const remaining = addresses.filter((a) => a._id !== addressId);
-        if (remaining.length > 0) {
-          setAddresses((prev) =>
-            prev.map((addr, index) =>
-              index === 0 ? { ...addr, isDefault: true } : addr
-            )
-          );
-        }
-      }
-    }
-  };
+      return remaining;
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
 
   const handleProceedToPayment = () => {
     if (!selectedAddress) {
