@@ -256,7 +256,19 @@ import Navbar from "@/components/Navbar";
 
 export default async function CheckoutAddressPage() {
   // Example: get authenticated user (SSR-safe)
-  const user = await getServerSession();
+  // const user = await getServerSession();
+
+  const sessionUser = await getServerSession();
+
+const user = sessionUser
+  ? {
+      _id: sessionUser._id.toString(),
+      name: sessionUser.name,
+      email: sessionUser.email,
+      role: sessionUser.role,
+    }
+  : null;
+
 
   // You can fetch backend address list here in future — SSR safe
 

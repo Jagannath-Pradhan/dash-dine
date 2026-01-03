@@ -10,18 +10,18 @@ export async function GET() {
         const user = await getServerSession();
 
         if (!user) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+            return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 
         const addresses = await Address.find({ userId: user._id })
             .sort({ isDefault: -1, createdAt: -1 })       // Default first, then newest
             .lean();
 
-        return NextResponse.json(addresses, { status: 200 });
+        return NextResponse.json({ success: true, message: "Addresses fetched successfully", addresses }, { status: 200 });
     } catch (error) {
         console.error("Error fetching addresses:", error);
         return NextResponse.json(
-            { error: "Failed to fetch addresses" },
+            { success: false, message: "Failed to fetch addresses" },
             { status: 500 }
         );
     }
@@ -34,7 +34,7 @@ export async function POST(request) {
         const user = await getServerSession();
 
         if (!user) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+            return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 
         const body = await request.json();
@@ -42,7 +42,7 @@ export async function POST(request) {
 
         if (!name || !line1 || !city || !state || !pincode || !phone) {
             return NextResponse.json(
-                { error: "Missing required fields" },
+                { success: false, message: "Missing required fields" },
                 { status: 400 }
             );
         }
@@ -65,11 +65,11 @@ export async function POST(request) {
             isDefault: addressCount === 0 ? true : isDefault || false,
         });
 
-        return NextResponse.json(newAddress, { status: 201 });
+        return NextResponse.json({ success: true, message: "Address created successfully", address: newAddress }, { status: 201 });
     } catch (error) {
         console.error("Error creating address:", error);
         return NextResponse.json(
-            { error: "Failed to create address" },
+            { success: false, message: "Failed to create address" },
             { status: 500 }
         );
     }

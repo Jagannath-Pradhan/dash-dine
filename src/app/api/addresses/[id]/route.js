@@ -10,7 +10,7 @@ export async function PUT(request, { params }) {
         const user = await getServerSession();
 
         if (!user) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+            return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 
         const { id } = await params;
@@ -24,7 +24,7 @@ export async function PUT(request, { params }) {
 
         if (!address) {
             return NextResponse.json(
-                { error: "Address not found" },
+                { success: false, message: "Address not found" },
                 { status: 404 }
             );
         }
@@ -36,11 +36,11 @@ export async function PUT(request, { params }) {
             { new: true, runValidators: true }
         );
 
-        return NextResponse.json(updatedAddress, { status: 200 });
+        return NextResponse.json({ success: true, message: "Address updated successfully", address: updatedAddress }, { status: 200 });
     } catch (error) {
         console.error("Error updating address:", error);
         return NextResponse.json(
-            { error: "Failed to update address" },
+            { success: false, message: "Failed to update address" },
             { status: 500 }
         );
     }
@@ -54,7 +54,7 @@ export async function DELETE(request, { params }) {
         const user = await getServerSession();
 
         if (!user) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+            return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 
         const { id } = await params;
@@ -66,7 +66,7 @@ export async function DELETE(request, { params }) {
 
         if (!address) {
             return NextResponse.json(
-                { error: "Address not found" },
+                { success: false, message: "Address not found" },
                 { status: 404 }
             );
         }
@@ -78,7 +78,7 @@ export async function DELETE(request, { params }) {
 
         if (addressCount === 1) {
             return NextResponse.json(
-                { error: "Cannot delete the only address" },
+                { success: false, message: "Cannot delete the only address" },
                 { status: 400 }
             );
         }
@@ -97,13 +97,13 @@ export async function DELETE(request, { params }) {
         }
 
         return NextResponse.json(
-            { message: "Address deleted successfully" },
+            { success: true, message: "Address deleted successfully" },
             { status: 200 }
         );
     } catch (error) {
         console.error("Error deleting address:", error);
         return NextResponse.json(
-            { error: "Failed to delete address" },
+            { success: false, message: "Failed to delete address" },
             { status: 500 }
         );
     }

@@ -283,8 +283,14 @@ export default function ClientAddress({ user }) {
         if (!res.ok) throw new Error("Failed to fetch addresses");
 
         const data = await res.json();
-        setAddresses(data);
-        setSelectedAddress(data.find(a => a.isDefault) || data[0] || null);
+
+        if (!data.success) throw new Error(data.message);
+
+        const list = data.addresses;
+
+        setAddresses(list);
+        setSelectedAddress(list.find(a => a.isDefault) || list[0] || null);
+
       } catch (err) {
         console.error(err);
       }
@@ -292,7 +298,7 @@ export default function ClientAddress({ user }) {
 
     fetchAddresses();
   }, [router]);
-  
+
   const handleAddAddress = async (newAddress) => {
     try {
       const res = await fetch("/api/addresses", {
@@ -322,74 +328,74 @@ export default function ClientAddress({ user }) {
   };
 
   const handleEditAddress = async (updatedAddress) => {
-  try {
-    const res = await fetch(`/api/addresses/${updatedAddress._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(updatedAddress),
-    });
+    try {
+      const res = await fetch(`/api/addresses/${updatedAddress._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(updatedAddress),
+      });
 
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.error || "Failed to update address");
-    }
-
-    const savedAddress = await res.json();
-
-    setAddresses((prev) =>
-      prev.map((addr) =>
-        addr._id === savedAddress._id
-          ? savedAddress
-          : savedAddress.isDefault
-          ? { ...addr, isDefault: false }
-          : addr
-      )
-    );
-
-    if (selectedAddress?._id === savedAddress._id) {
-      setSelectedAddress(savedAddress);
-    }
-
-    setEditingAddress(null);
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-
-  const handleDeleteAddress = async (addressId) => {
-  if (!window.confirm("Are you sure you want to delete this address?")) return;
-
-  try {
-    const res = await fetch(`/api/addresses/${addressId}`, {
-      method: "DELETE",
-      credentials: "include",
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.error || "Failed to delete address");
-    }
-
-    setAddresses((prev) => {
-      const remaining = prev.filter((addr) => addr._id !== addressId);
-
-      // Update selected address
-      if (selectedAddress?._id === addressId) {
-        setSelectedAddress(remaining[0] || null);
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to update address");
       }
 
-      return remaining;
-    });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
+      const savedAddress = await res.json();
+
+      setAddresses((prev) =>
+        prev.map((addr) =>
+          addr._id === savedAddress._id
+            ? savedAddress
+            : savedAddress.isDefault
+              ? { ...addr, isDefault: false }
+              : addr
+        )
+      );
+
+      if (selectedAddress?._id === savedAddress._id) {
+        setSelectedAddress(savedAddress);
+      }
+
+      setEditingAddress(null);
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
+
+  const handleDeleteAddress = async (addressId) => {
+    if (!window.confirm("Are you sure you want to delete this address?")) return;
+
+    try {
+      const res = await fetch(`/api/addresses/${addressId}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to delete address");
+      }
+
+      setAddresses((prev) => {
+        const remaining = prev.filter((addr) => addr._id !== addressId);
+
+        // Update selected address
+        if (selectedAddress?._id === addressId) {
+          setSelectedAddress(remaining[0] || null);
+        }
+
+        return remaining;
+      });
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
 
   const handleProceedToPayment = () => {
     if (!selectedAddress) {
