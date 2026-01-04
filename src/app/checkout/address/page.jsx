@@ -160,7 +160,7 @@
 //                       )}
 //                     </div>
 //                   </div>
-                  
+
 //                   <div className="flex gap-2">
 //                     <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
 //                       <Edit2 className="w-4 h-4 text-gray-600" />
@@ -189,7 +189,7 @@
 //           <div className="lg:col-span-1">
 //             <div className="bg-white rounded-xl shadow-lg p-5 sticky top-6">
 //               <h3 className="font-bold text-lg mb-4">Order Summary</h3>
-              
+
 //               <div className="space-y-2 text-sm mb-4">
 //                 <div className="flex justify-between">
 //                   <span className="text-gray-600">Items ({checkoutData.items.length})</span>
@@ -259,22 +259,22 @@ export default async function CheckoutAddressPage() {
   // const user = await getServerSession();
 
   const sessionUser = await getServerSession();
+  // console.log("CheckoutAddressPage sessionUser:", sessionUser);
 
-const user = sessionUser
-  ? {
+  const user = sessionUser
+    ? {
       _id: sessionUser._id.toString(),
       name: sessionUser.name,
       email: sessionUser.email,
       role: sessionUser.role,
     }
-  : null;
-
+    : null;
 
   // You can fetch backend address list here in future — SSR safe
 
   return (
     <>
-    <Navbar user={user} isScrolled={true} />
+      <Navbar user={user} isScrolled={true} />
       <ClientAddress user={user} />
       <Footer />
     </>
