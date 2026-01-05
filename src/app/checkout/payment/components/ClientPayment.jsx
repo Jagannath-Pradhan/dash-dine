@@ -2,17 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import {
-  ArrowLeft,
-  CreditCard,
-  Wallet,
-  Building2,
-  Smartphone,
-  CheckCircle2,
-  Shield,
-  MapPin,
-  Package,
-} from "lucide-react";
+import { ArrowLeft, CreditCard, Wallet, Building2, Smartphone, CheckCircle2, Shield, MapPin, Package } from "lucide-react";
 
 export default function ClientPayment({ user }) {
   const router = useRouter();
