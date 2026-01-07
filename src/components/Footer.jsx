@@ -30,20 +30,20 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Company</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-orange-400 transition">About Us</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Careers</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Team</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Blog</a></li>
+              <li><Link href="/about-us" className="hover:text-orange-400 transition">About Us</Link></li>
+              <li><Link href="#" className="hover:text-orange-400 transition">Careers</Link></li>
+              <li><Link href="#" className="hover:text-orange-400 transition">Team</Link></li>
+              <li><Link href="#" className="hover:text-orange-400 transition">Blog</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold text-lg mb-4">Support</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-orange-400 transition">Help Center</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Safety</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Terms & Conditions</a></li>
-              <li><a href="#" className="hover:text-orange-400 transition">Privacy Policy</a></li>
+              <li><Link href="#" className="hover:text-orange-400 transition">Help Center</Link></li>
+              <li><Link href="#" className="hover:text-orange-400 transition">Safety</Link></li>
+              <li><Link href="#" className="hover:text-orange-400 transition">Terms & Conditions</Link></li>
+              <li><Link href="#" className="hover:text-orange-400 transition">Privacy Policy</Link></li>
             </ul>
           </div>
           

@@ -173,7 +173,7 @@ export default function ClientOrderConfirmation({ user }) {
   const PaymentIcon = getPaymentMethodIcon(orderDetails.paymentMethod);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 pt-24 pb-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Success Header */}
         <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 mb-6 text-center">

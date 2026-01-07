@@ -70,7 +70,7 @@ export default async function CartPage(props) {
   return (
     <>
       <Navbar user={user} isScrolled={true} />
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 pt-24">
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 pt-14">
         <Suspense fallback={<CartSkeleton />}>
           <CartClientWrapper
             initialCart={serverCart}
